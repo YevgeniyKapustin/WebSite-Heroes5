@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Герои 5 по сети
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-group">
+            {% for item in object_list %}
+            <div class="card border-dark mb-3" style="width: 20rem;">
+                <div class="col-md-3">
+                <img src="{{ item.photo.url }}" class="card-img-top" alt="" width="150">
+                </div>
+                <div class="card-body text-dark">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.content }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href='{{ item.url }}' class="btn btn-outline-dark">Скачать</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

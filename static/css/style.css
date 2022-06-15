@@ -1,0 +1,10 @@
+body{
+    background-color: #EBA658;
+}
+.errorlist{
+    color: red;
+}
+
+li {
+    text-align: -webkit-match-parent-center ;
+}
