@@ -1,20 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="/media/navbar/keteusta.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                 Главная
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="{% url 'download_game' %}">Скачать герои 5</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'mods' %}">Моды</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'maps' %}">Карты</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'online_game' %}">Игра по сети</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'download_game' %}">
+                    <img src="/media/navbar/download.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
+                    Скачать герои 5</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'mods' %}">
+                    <img src="/media/navbar/mod.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
+                    Моды</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'maps' %}">
+                    <img src="/media/navbar/map.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
+                    Карты</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'online_game' %}">
+                    <img src="/media/navbar/game.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
+                    Игра по сети</a></li>
             </ul>
             <span class="navbar-text">
                 {% if request.user.is_authenticated %}
                 <a type="submit" class="btn btn-outline-dark" href="{% url 'report' %}">Отправить отчёт об игре</a>
-                {{ user.username }} | <a href="logout">Выход</a>
+                {{ user.username }} | <a href="{% url 'logout' %}">Выход</a>
                 {% else %}
                 <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a>
                 {% endif %}

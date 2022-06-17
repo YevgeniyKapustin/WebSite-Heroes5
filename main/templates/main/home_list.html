@@ -6,59 +6,46 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-3">
-        <h6 class="list-group-item">Игрок</h6>
-        <ul class="list-group ">
-            {% for name_player in name_players %}
-            <li class="list-group-item">{{ name_player }}</li>
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Игрок</th>
+                <th scope="col">Сыграно игр</th>
+                <th scope="col">Винрейт</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in WinratePlayersStats %}
+            <tr>
+                <td>{{ player.name }}</td>
+                <td>{{ player.games }}</td>
+                <td>{{ player.winrate }}</td>
+            </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     </div>
 
-    <div class="col-md-2">
-        <h6 class="list-group-item">Сыграно игр</h6>
-        <ul class="list-group border-dark">
-            {% for games_player in games_players %}
-            <li class="list-group-item">{{ games_player }}</li>
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Фракция</th>
+                <th scope="col">Сыграно игр</th>
+                <th scope="col">Винрейт</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for fraction in WinrateFractionsStats %}
+            <tr>
+                <td>{{ fraction.name }}</td>
+                <td>{{ fraction.games }}</td>
+                <td>{{ fraction.winrate }}</td>
+            </tr>
             {% endfor %}
-        </ul>
-    </div>
-
-    <div class="col-md-1">
-        <h6 class="list-group-item">Винрейт</h6>
-        <ul class="list-group border-dark">
-            {% for winrate_player in winrate_players %}
-            <li class="list-group-item">{{ winrate_player }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="col-md-3">
-        <h6 class="list-group-item">Фракция</h6>
-        <ul class="list-group ">
-            {% for name_fraction in name_fractions %}
-            <li class="list-group-item">{{ name_fraction }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="col-md-2">
-        <h6 class="list-group-item">Сыграно игр</h6>
-        <ul class="list-group ">
-            {% for games_fraction in games_fractions %}
-            <li class="list-group-item">{{ games_fraction }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="col-md-1">
-        <h6 class="list-group-item">Винрейт</h6>
-        <ul class="list-group border-dark">
-            {% for winrate_fractions in winrate_fractions %}
-            <li class="list-group-item">{{ winrate_fractions }}</li>
-            {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     </div>
 </div>
-
 {% endblock %}

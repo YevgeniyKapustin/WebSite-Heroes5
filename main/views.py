@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from .forms import UserRegisterForm, UserLoginForm, ReportForm
-from .models import Home, DownloadGame, Mods, Maps, Online, Report
+from .models import Home, DownloadGame, Mods, Maps, Online, Report, WinratePlayersStats, WinrateFractionsStats
 
 
 def report(request):
@@ -12,6 +12,8 @@ def report(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Отчёт отправлен')
+            exemplar = HomeMain()
+            exemplar.save_stats()
             return redirect('home')
         else:
             messages.error(request, 'Ошибка отправки отчёта')
@@ -30,6 +32,8 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            x = HomeMain()
+            x.save_stats()
             messages.success(request, 'Успешная регистрация')
             return redirect('home')
         else:
@@ -51,6 +55,18 @@ def user_login(request):
     return render(request, 'main/login.html', {'form': form})
 
 
+class PlayersStatMain(ListView):
+    model = WinratePlayersStats
+    template_name = 'main/home_list.html'
+    context_object_name = 'players_stats'
+
+
+class FractionsStatMain(ListView):
+    model = WinrateFractionsStats
+    template_name = 'main/home_list.html'
+    context_object_name = 'fractions_stats'
+
+
 class HomeMain(ListView):
     model = Home
 
@@ -63,15 +79,23 @@ class HomeMain(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['WinratePlayersStats'] = WinratePlayersStats.objects.all()
+        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.all()
+        return context
+
+    def save_stats(self):
         name_players, players_game_list, winrate_players = self.__return_data_players()
         name_fractions, fractions_game_list, winrate_fractions = self.__return_data_fractions()
-        context['name_players'] = name_players
-        context['winrate_players'] = winrate_players
-        context['games_players'] = players_game_list
-        context['winrate_fractions'] = winrate_fractions
-        context['name_fractions'] = name_fractions
-        context['games_fractions'] = fractions_game_list
-        return context
+        WinratePlayersStats.objects.all().delete()
+        WinrateFractionsStats.objects.all().delete()
+        for i in range(len(name_players)):
+            WinratePlayersStats.objects.create(name=name_players[i],
+                                               games=players_game_list[i],
+                                               winrate=winrate_players[i])
+        for i in range(len(name_fractions)):
+            WinrateFractionsStats.objects.create(name=name_fractions[i],
+                                                 games=fractions_game_list[i],
+                                                 winrate=winrate_fractions[i])
 
     def __return_data_players(self):
         name_players_list, players_game_list, winrate_players_list = self.__create_players_winrate_data()
