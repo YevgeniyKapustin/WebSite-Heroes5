@@ -11,4 +11,5 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('logout/', user_logout, name='logout'),
     path('report/', report, name='report'),
+    path('kateusta/', KatestaMain.as_view(), name='kateusta'),
 ]

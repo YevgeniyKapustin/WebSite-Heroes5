@@ -3,7 +3,8 @@ from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from .forms import UserRegisterForm, UserLoginForm, ReportForm
-from .models import Home, DownloadGame, Mods, Maps, Online, Report, WinratePlayersStats, WinrateFractionsStats
+from .models import Home, DownloadGame, Mods, Maps, Online, Report, WinratePlayersStats, WinrateFractionsStats, \
+    KateustaInfo
 
 
 def report(request):
@@ -233,3 +234,7 @@ class MapsMain(ListView):
 
 class OnlineMain(ListView):
     model = Online
+
+
+class KatestaMain(ListView):
+    model = KateustaInfo

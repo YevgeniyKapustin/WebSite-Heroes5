@@ -9,18 +9,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="{% url 'download_game' %}">
-                    <img src="/media/navbar/download.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
-                    Скачать герои 5</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'mods' %}">
-                    <img src="/media/navbar/mod.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
-                    Моды</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'maps' %}">
-                    <img src="/media/navbar/map.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
-                    Карты</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'online_game' %}">
-                    <img src="/media/navbar/game.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
-                    Игра по сети</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'download_game' %}">Скачать герои 5</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'mods' %}">Моды</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'maps' %}">Карты</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'online_game' %}">Игра по сети</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'kateusta' %}">Kateusta</a></li>
             </ul>
             <span class="navbar-text">
                 {% if request.user.is_authenticated %}

@@ -4,7 +4,7 @@ from django.db import models
 class Home(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Содержание')
-    photo = models.ImageField(upload_to='photos/$Y/%m/%d/',  verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photos/$y/%m/%d/',  verbose_name='Изображение')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Home(models.Model):
 class DownloadGame(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Содержание')
-    photo = models.ImageField(upload_to='photos/$Y/%m/%d/', verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photos/$y/%m/%d/', verbose_name='Изображение')
     url = models.URLField(max_length=200, verbose_name='Cсылка')
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Mods(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Содержание')
     creators = models.TextField(verbose_name='Авторы')
-    photo = models.ImageField(upload_to='photos/$Y/%m/%d/', verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photos/$y/%m/%d/', verbose_name='Изображение')
     url = models.URLField(max_length=200, verbose_name='Cсылка')
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Maps(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Содержание')
     creators = models.TextField(verbose_name='Авторы')
-    photo = models.ImageField(upload_to='photos/$Y/%m/%d/', verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photos/$y/%m/%d/', verbose_name='Изображение')
     url = models.URLField(max_length=200, verbose_name='Cсылка')
 
     def __str__(self):
@@ -66,7 +66,7 @@ class Maps(models.Model):
 class Online(models.Model):
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Содержание')
-    photo = models.ImageField(upload_to='photos/$Y/%m/%d/', verbose_name='Изображение')
+    photo = models.ImageField(upload_to='photos/$y/%m/%d/', verbose_name='Изображение')
     url = models.URLField(max_length=200, verbose_name='Cсылка')
 
     def __str__(self):
@@ -109,12 +109,16 @@ class Report(models.Model):
 
 
 class WinratePlayersStats(models.Model):
-    name = models.CharField(max_length=15, verbose_name='Игрок')
+    name = models.CharField(max_length=20, verbose_name='Игрок')
     games = models.CharField(max_length=3, verbose_name='Сыгрно игр')
     winrate = models.CharField(max_length=4, verbose_name='Винрейт игрока')
 
 
 class WinrateFractionsStats(models.Model):
-    name = models.CharField(max_length=15, verbose_name='Фракция')
+    name = models.CharField(max_length=20, verbose_name='Фракция')
     games = models.CharField(max_length=3, verbose_name='Сыгрно игр')
     winrate = models.CharField(max_length=4, verbose_name='Винрейт фракции')
+
+
+class KateustaInfo(models.Model):
+    pass
