@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'cabbagesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresql-trapezoidal-29315',
-        'USER': 'hsqaedkpcqefbw',
-        'PASSWORD': 'ab2851dec4cf8ec507127f7025a15a7a8fe05625d9c1fb97585aa1f9d923e6db',
-        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
+        'NAME': 'denm1vdp704qvk',
+        'USER': 'exujmnikuaocsj',
+        'PASSWORD': '734c92d6560157b99874209152d8cf77927b247e7ef814d91340d8b4bbda72be',
+        'HOST': 'ec2-34-247-72-29.eu-west-1.compute.amazonaws.com',
         'PORT': 5432,
     }
 }
