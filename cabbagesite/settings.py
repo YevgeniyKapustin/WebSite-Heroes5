@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'cabbagesite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'denm1vdp704qvk',
         'USER': 'exujmnikuaocsj',
         'PASSWORD': '734c92d6560157b99874209152d8cf77927b247e7ef814d91340d8b4bbda72be',
