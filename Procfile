@@ -1,1 +1,1 @@
-web: gunicorn cabbagesite.wsgi --log-file -
+web gunicorn cabbagesite.wsgi --log-file -
