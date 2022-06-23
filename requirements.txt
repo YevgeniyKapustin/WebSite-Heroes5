@@ -17,4 +17,4 @@ requests==2.28.0
 sqlparse==0.4.2
 tzdata==2022.1
 urllib3==1.26.9
-whitenoise==6.2.0
+whitenoise==3.3.0
