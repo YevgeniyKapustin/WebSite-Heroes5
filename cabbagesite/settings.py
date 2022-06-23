@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'cabbagesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cabbagesite_db',
+        'NAME': 'postgresql-trapezoidal-29315',
         'USER': 'hsqaedkpcqefbw',
         'PASSWORD': 'ab2851dec4cf8ec507127f7025a15a7a8fe05625d9c1fb97585aa1f9d923e6db',
         'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
