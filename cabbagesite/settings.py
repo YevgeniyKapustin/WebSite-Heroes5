@@ -129,11 +129,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'cabbagesite/static')
+    os.path.join(BASE_DIR, 'static')
 ]
-
-db_form_env = dj_database_url.config()
-DATABASES['default'].update(db_form_env)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
