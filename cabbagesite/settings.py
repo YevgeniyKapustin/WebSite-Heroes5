@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'cabbagesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cabbagesite_db',
-        'USER': 'root',
-        'PASSWORD': 'KapustaP666!',
-        'HOST': 'localhost',
+        'NAME': 'kapusta$cabbagesite-mysql-db',
+        'USER': 'kapusta',
+        'PASSWORD': 'Karina666',
+        'HOST': 'kapusta.mysql.eu.pythonanywhere-services.com',
     }
 }
 
