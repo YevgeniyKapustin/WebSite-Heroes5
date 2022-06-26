@@ -80,8 +80,13 @@ class HomeMain(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['WinratePlayersStats'] = WinratePlayersStats.objects.all()
-        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.all()
+        context['WinratePlayersStats'] = WinratePlayersStats.objects.order_by('-games').order_by('-winrate').all()
+        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.order_by('-games').order_by('-winrate').all()
+        context['TablePlayerCol1'] = 'Игроки'
+        context['TableFractionCol1'] = 'Фракция'
+        context['TableCol2'] = 'Сыграно игр'
+        context['TableCol3'] = 'Винрейт'
+        context['Title'] = 'Главная'
         return context
 
     def save_stats(self):
@@ -223,18 +228,49 @@ class HomeMain(ListView):
 class GameMain(ListView):
     model = DownloadGame
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Скачать герои 5'
+        context['Button'] = 'Скачать'
+        return context
+
 
 class ModsMain(ListView):
     model = Mods
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Моды'
+        context['Button'] = 'Скачать'
+        context['Prefix'] = 'Авторство: '
+        return context
 
 
 class MapsMain(ListView):
     model = Maps
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Карты'
+        context['Button'] = 'Скачать'
+        context['Prefix'] = 'Авторство: '
+        return context
+
 
 class OnlineMain(ListView):
     model = Online
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Герои 5 по сети'
+        context['Button'] = 'Скачать'
+        return context
+
 
 class KatestaMain(ListView):
     model = KateustaInfo
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Kateusta'
+        return context

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Герои 5 по сети
+{{ Title }}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
                     <p class="card-text">{{ item.content }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href='{{ item.url }}' class="btn btn-outline-dark">Скачать</a>
+                    <a href='{{ item.url }}' class="btn btn-outline-dark">{{ Button }}</a>
                 </div>
             </div>
             {% endfor %}
