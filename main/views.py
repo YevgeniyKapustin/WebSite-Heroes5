@@ -80,8 +80,8 @@ class HomeMain(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['WinratePlayersStats'] = WinratePlayersStats.objects.all()
-        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.all()
+        context['WinratePlayersStats'] = WinratePlayersStats.objects.order_by('-games').order_by('-winrate').all()
+        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.order_by('-games').order_by('-winrate').all()
         return context
 
     def save_stats(self):
