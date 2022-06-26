@@ -26,5 +26,4 @@ admin.site.register(Maps)
 admin.site.register(Online)
 admin.site.register(Fraction)
 admin.site.register(Report, ReportAdmin)
-
 admin.site.site_header = 'Управление'
