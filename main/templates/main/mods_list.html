@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Моды
+{{ Title }}
 {% endblock %}
 
 {% block content %}
@@ -15,10 +15,10 @@
                     <div class="card-body text-dark">
                         <h5 class="card-title">{{ item.title }}</h5>
                         <p class="card-text">{{ item.content }}</p>
-                        <p class="card-text">Авторство: {{ item.creators }}</p>
+                        <p class="card-text">{{ Prefix }}{{ item.creators }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href='{{ item.url }}' class="btn btn-outline-dark">Скачать</a>
+                        <a href='{{ item.url }}' class="btn btn-outline-dark">{{ Button }}</a>
                     </div>
                 </div>
             </div>
