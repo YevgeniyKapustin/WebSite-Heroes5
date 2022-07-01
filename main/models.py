@@ -78,7 +78,7 @@ class Online(models.Model):
         ordering = ['-title']
 
 
-class Fraction(models.Model):
+class Fractions(models.Model):
     title = models.CharField(max_length=20, db_index=True, verbose_name='Фракция')
 
     def __str__(self):
@@ -94,30 +94,40 @@ class Report(models.Model):
     myself = models.CharField(max_length=15, verbose_name='Игрок')
     victory = models.BooleanField(default=True, verbose_name='Победа')
     opponent = models.CharField(max_length=15, verbose_name='Оппонент')
-    fraction_myself = models.ForeignKey('fraction', on_delete=models.PROTECT, verbose_name='Фракция игрока',
+    fraction_myself = models.ForeignKey('fractions', on_delete=models.PROTECT, verbose_name='Фракция игрока',
                                         related_name='fraction_opponent')
-    fraction_opponent = models.ForeignKey('fraction', on_delete=models.PROTECT, verbose_name='Фракция оппонента')
+    fraction_opponent = models.ForeignKey('fractions', on_delete=models.PROTECT, verbose_name='Фракция оппонента')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата отправки')
 
     def __str__(self):
         return self.myself
 
     class Meta:
-        verbose_name = 'Отчёт'
+        verbose_name = 'отчёт'
         verbose_name_plural = 'Отчёты'
         ordering = ['myself']
 
 
 class WinratePlayersStats(models.Model):
     name = models.CharField(max_length=20, verbose_name='Игрок')
-    games = models.CharField(max_length=3, verbose_name='Сыгрно игр')
-    winrate = models.CharField(max_length=4, verbose_name='Винрейт игрока')
+    games = models.IntegerField(verbose_name='Финалок игрока')
+    winrate = models.IntegerField(verbose_name='Винрейт игрока')
+
+    class Meta:
+        verbose_name = 'винрейт игрока'
+        verbose_name_plural = 'Винрейт игроков'
+        ordering = ['-winrate', '-games']
 
 
 class WinrateFractionsStats(models.Model):
     name = models.CharField(max_length=20, verbose_name='Фракция')
-    games = models.CharField(max_length=3, verbose_name='Сыгрно игр')
-    winrate = models.CharField(max_length=4, verbose_name='Винрейт фракции')
+    games = models.IntegerField(verbose_name='Финалок фракции')
+    winrate = models.IntegerField(verbose_name='Винрейт фракции')
+
+    class Meta:
+        verbose_name = 'винрейт фракции'
+        verbose_name_plural = 'Винрейт фракций'
+        ordering = ['-winrate', '-games']
 
 
 class KateustaInfo(models.Model):

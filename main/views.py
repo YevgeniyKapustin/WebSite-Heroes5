@@ -80,8 +80,8 @@ class HomeMain(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['WinratePlayersStats'] = WinratePlayersStats.objects.order_by('-games').order_by('-winrate').all()
-        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.order_by('-games').order_by('-winrate').all()
+        context['WinratePlayersStats'] = WinratePlayersStats.objects.all()
+        context['WinrateFractionsStats'] = WinrateFractionsStats.objects.all()
         context['TablePlayerCol1'] = 'Игроки'
         context['TableFractionCol1'] = 'Фракция'
         context['TableCol2'] = 'Сыграно игр'
@@ -155,7 +155,7 @@ class HomeMain(ListView):
                 if not self.reports[index_game].victory:
                     victory_count += 1
         self.ready_players.append(self.reports[index_player].myself)
-        return str(int(victory_count / game_count * 100)), game_count
+        return int(victory_count / game_count * 100), game_count
 
     def __return_data_fractions(self):
         name_fraction_list, fractions_game_list, winrate_fraction_list = self.__create_fractions_winrate_data()
@@ -219,9 +219,9 @@ class HomeMain(ListView):
         objects_name = []
         objects_winrate = []
         for index in range(len(name_list)):
-            objects_name.append('{}'.format(name_list[index]))
+            objects_name.append(name_list[index])
         for index in range(len(winrate_list)):
-            objects_winrate.append('{}%'.format(winrate_list[index]))
+            objects_winrate.append(winrate_list[index])
         return objects_name, objects_winrate
 
 

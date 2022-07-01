@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, DownloadGame, Mods, Maps, Online, Fraction, Report
+from .models import Home, DownloadGame, Mods, Maps, Online, Fractions, Report
 
 
 class HomeAdmin(admin.ModelAdmin):
@@ -24,6 +24,6 @@ admin.site.register(DownloadGame)
 admin.site.register(Mods)
 admin.site.register(Maps)
 admin.site.register(Online)
-admin.site.register(Fraction)
+admin.site.register(Fractions)
 admin.site.register(Report, ReportAdmin)
 admin.site.site_header = 'Управление'
