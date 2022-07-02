@@ -84,7 +84,7 @@ class HomeMain(ListView):
         context['WinrateFractionsStats'] = WinrateFractionsStats.objects.all()
         context['TablePlayerCol1'] = 'Игроки'
         context['TableFractionCol1'] = 'Фракция'
-        context['TableCol2'] = 'Сыграно игр'
+        context['TableCol2'] = 'Финалок'
         context['TableCol3'] = 'Винрейт'
         context['Title'] = 'Главная'
         return context
