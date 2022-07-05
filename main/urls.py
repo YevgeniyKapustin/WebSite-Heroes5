@@ -12,4 +12,6 @@ urlpatterns = [
     path('logout/', user_logout, name='logout'),
     path('report/', report, name='report'),
     path('kateusta/', KatestaMain.as_view(), name='kateusta'),
+    path('guides/', GuidesMain.as_view(), name='guides'),
+    path('guides/<slug:slug>/', GuideDetailMain.as_view(), name='guide'),
 ]

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div>
+        <h2>{{ object.title }}</h2>
+        <p>{{ object.content|safe }}</p>
+    </div>
+</div>
+
+{% endblock %}

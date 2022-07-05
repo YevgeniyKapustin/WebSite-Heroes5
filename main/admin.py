@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, DownloadGame, Mods, Maps, Online, Fractions, Report
+from .models import Home, DownloadGame, Mods, Maps, Online, Fractions, Report, Guides
 
 
 class HomeAdmin(admin.ModelAdmin):
@@ -14,6 +14,11 @@ class ReportAdmin(admin.ModelAdmin):
     search_fields = ('myself', 'created_at')
 
 
+class GuidesAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug')
+    prepopulated_fields = {'slug': ('title',)}
+
+
 class OtherAdmin(admin.ModelAdmin):
     list_display_links = ('title',)
     search_fields = ('title', 'content')
@@ -25,5 +30,6 @@ admin.site.register(Mods)
 admin.site.register(Maps)
 admin.site.register(Online)
 admin.site.register(Fractions)
+admin.site.register(Guides, GuidesAdmin)
 admin.site.register(Report, ReportAdmin)
 admin.site.site_header = 'Управление'

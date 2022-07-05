@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .forms import UserRegisterForm, UserLoginForm, ReportForm
 from .models import Home, DownloadGame, Mods, Maps, Online, Report, WinratePlayersStats, WinrateFractionsStats, \
-    KateustaInfo
+    KateustaInfo, Guides
 
 
 def report(request):
@@ -274,3 +274,16 @@ class KatestaMain(ListView):
         context = super().get_context_data(**kwargs)
         context['Title'] = 'Kateusta'
         return context
+
+
+class GuidesMain(ListView):
+    model = Guides
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title'] = 'Руководства'
+        return context
+
+
+class GuideDetailMain(DetailView):
+    model = Guides
