@@ -1,6 +1,7 @@
 from django.urls import path
-from stats.views import show_stat
+from stats.views import show_stat, redirect_to_stat
 
 urlpatterns = [
-    path('show/', show_stat, name='show_stat')
+    path('', redirect_to_stat, name='home'),
+    path('stat/', show_stat, name='stats')
 ]

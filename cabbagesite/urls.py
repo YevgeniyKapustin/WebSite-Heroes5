@@ -5,13 +5,15 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stats', include('stats.urls')),
+    path('', include('stats.urls')),
     path('download_game', include('download_game.urls')),
     path('reports', include('reports.urls')),
     path('kateusta', include('kateusta.urls')),
     path('guides', include('guides.urls')),
-    path('', include('mods_and_maps.urls')),
+    path('maps', include('maps.urls')),
+    path('mods', include('mods.urls')),
     path('online_game', include('online_game.urls')),
+    path('', include('register.urls')),
 ]
 
 if settings.DEBUG:

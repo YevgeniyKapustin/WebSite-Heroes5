@@ -23,7 +23,10 @@ INSTALLED_APPS = [
     'download_game.apps.DownloadGameConfig',
     'kateusta.apps.KateustaConfig',
     'guides.apps.GuidesConfig',
-    'mods_and_maps.apps.ModsAndMapsConfig',
+    'mods.apps.ModsConfig',
+    'maps.apps.MapsConfig',
+    'online_game.apps.OnlineGameConfig',
+    'register.apps.RegisterConfig',
     'rest_framework',
 ]
 
@@ -101,5 +104,5 @@ game_image = '/media/game.png'
 kateusta_link = 'https://disk.yandex.ru/d/QeUEhYAX7TCYoQ'
 kateusta_version = 1.14
 
-online_link = 'https://drive.google.com/file/d/1Pf3heEC8OwC-q4wPXThmASO0trSwcWVs/view?usp=sharing'
+online_link = 'https://vk.com/away.php?to=https%3A%2F%2Fdownload.radmin-vpn.com%2Fdownload%2Ffiles%2FRadmin_VPN_1.2.4457.1.exe&cc_key='
 online_image = '/media/online.png'

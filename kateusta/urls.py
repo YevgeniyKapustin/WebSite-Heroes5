@@ -1,7 +1,6 @@
 from django.urls import path
-from download_game.views import show_download_game
-
+from kateusta.views import show_kateusta
 
 urlpatterns = [
-    path('', show_download_game, name='kateusta')
+    path('', show_kateusta, name='kateusta')
 ]

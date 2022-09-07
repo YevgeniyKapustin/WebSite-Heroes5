@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from stats.models import WinratePlayersStats, WinrateFractionsStats
 
 
@@ -13,3 +13,7 @@ def show_stat(request):
         'Title': 'Главная'
     }
     return render(request, 'stats/stats.html', context)
+
+
+def redirect_to_stat(request):
+    return redirect('stats')

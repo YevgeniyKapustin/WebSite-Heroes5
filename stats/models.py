@@ -21,4 +21,3 @@ class WinrateFractionsStats(models.Model):
         verbose_name = 'винрейт фракции'
         verbose_name_plural = 'Винрейт фракций'
         ordering = ['-winrate', '-games']
-
