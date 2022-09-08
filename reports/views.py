@@ -16,4 +16,4 @@ def send_reports(request):
             messages.error(request, 'Ошибка отправки отчёта')
     else:
         form = ReportForm()
-    return render(request, 'main/report.html', {'form': form})
+    return render(request, 'reports/reports_form.html', {'form': form})

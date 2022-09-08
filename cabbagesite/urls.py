@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('stats.urls')),
     path('download_game', include('download_game.urls')),
-    path('reports', include('reports.urls')),
+    path('reports/', include('reports.urls')),
     path('kateusta', include('kateusta.urls')),
     path('guides', include('guides.urls')),
     path('maps', include('maps.urls')),
