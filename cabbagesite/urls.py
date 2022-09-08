@@ -14,6 +14,7 @@ urlpatterns = [
     path('mods', include('mods.urls')),
     path('online_game', include('online_game.urls')),
     path('', include('register.urls')),
+    path('api/', include('api.urls')),
 ]
 
 if settings.DEBUG:
