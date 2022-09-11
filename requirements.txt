@@ -16,3 +16,4 @@ sqlparse==0.4.2
 tzdata==2022.1
 urllib3==1.26.9
 whitenoise==3.3.0
+djangorestframework~=3.13.1
