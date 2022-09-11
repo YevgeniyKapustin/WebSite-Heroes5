@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ Title }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">{{ TablePlayerCol1 }}</th>
+                <th scope="col">{{ TableCol2 }}</th>
+                <th scope="col">{{ TableCol3 }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in WinratePlayersStats %}
+            <tr>
+                <td>{{ player.name }}</td>
+                <td>{{ player.games }}</td>
+                <td>{{ player.winrate }}%</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">{{ TableFractionCol1 }}</th>
+                <th scope="col">{{ TableCol2 }}</th>
+                <th scope="col">{{ TableCol3 }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for fraction in WinrateFractionsStats %}
+            <tr>
+                <td>{{ fraction.name }}</td>
+                <td>{{ fraction.games }}</td>
+                <td>{{ fraction.winrate }}%</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
