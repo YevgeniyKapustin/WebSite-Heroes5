@@ -15,7 +15,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Успешная регистрация')
-            return redirect('promout')
+            return redirect('stats')
         else:
             messages.error(request, 'Ошибка регистрации')
     else:
@@ -29,7 +29,7 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('stat')
+            return redirect('stats')
     else:
         form = UserLoginForm()
     return render(request, 'register/login.html', {'form': form})
