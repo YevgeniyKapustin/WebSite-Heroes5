@@ -1,13 +1,13 @@
 from rest_framework.generics import ListAPIView
 from api.serializers import PlayersStatSerializer, FractionsStatSerializer
-from stats.models import WinratePlayersStats, WinrateFractionsStats
+from stats.models import PlayersStats, FractionsStats
 
 
 class PlayersStatAPIView(ListAPIView):
-    queryset = WinratePlayersStats.objects.all()
+    queryset = PlayersStats.objects.all()
     serializer_class = PlayersStatSerializer
 
 
 class FractionsStatAPIView(ListAPIView):
-    queryset = WinrateFractionsStats.objects.all()
+    queryset = FractionsStats.objects.all()
     serializer_class = FractionsStatSerializer

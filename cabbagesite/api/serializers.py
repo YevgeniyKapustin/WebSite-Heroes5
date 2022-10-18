@@ -1,14 +1,14 @@
 from rest_framework.serializers import ModelSerializer
-from stats.models import WinratePlayersStats, WinrateFractionsStats
+from stats.models import PlayersStats, FractionsStats
 
 
 class PlayersStatSerializer(ModelSerializer):
     class Meta:
-        model = WinratePlayersStats
+        model = PlayersStats
         fields = ('name', 'games', 'winrate')
 
 
 class FractionsStatSerializer(ModelSerializer):
     class Meta:
-        model = WinrateFractionsStats
+        model = FractionsStats
         fields = ('name', 'games', 'winrate')

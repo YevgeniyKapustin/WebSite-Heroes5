@@ -13,6 +13,7 @@
                 <th scope="col">{{ TablePlayerCol1 }}</th>
                 <th scope="col">{{ TableCol2 }}</th>
                 <th scope="col">{{ TableCol3 }}</th>
+                <th scope="col">{{ TableCol4 }}</th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                 <td>{{ player.name }}</td>
                 <td>{{ player.games }}</td>
                 <td>{{ player.winrate }}%</td>
+                <td>{{ player.rating }}</td>
             </tr>
             {% endfor %}
             </tbody>
@@ -34,6 +36,7 @@
                 <th scope="col">{{ TableFractionCol1 }}</th>
                 <th scope="col">{{ TableCol2 }}</th>
                 <th scope="col">{{ TableCol3 }}</th>
+                <th scope="col">{{ TableCol4 }}</th>
             </tr>
             </thead>
             <tbody>
@@ -42,6 +45,7 @@
                 <td>{{ fraction.name }}</td>
                 <td>{{ fraction.games }}</td>
                 <td>{{ fraction.winrate }}%</td>
+                <td>{{ fraction.rating }}</td>
             </tr>
             {% endfor %}
             </tbody>
