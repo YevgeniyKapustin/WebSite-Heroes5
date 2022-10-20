@@ -6,6 +6,7 @@ class PlayersStats(models.Model):
     games = models.BigIntegerField(verbose_name='Финалок игрока')
     winrate = models.BigIntegerField(verbose_name='Винрейт игрока')
     rating = models.BigIntegerField(verbose_name='Рейтинг игрока')
+    description = models.TextField(verbose_name='Описание', default='История оказалась пуста ¯\\_(ツ)_/¯')
 
     def __str__(self):
         return self.name
@@ -21,6 +22,7 @@ class FractionsStats(models.Model):
     games = models.BigIntegerField(verbose_name='Финалок фракции')
     winrate = models.BigIntegerField(verbose_name='Винрейт фракции')
     rating = models.BigIntegerField(verbose_name='Рейтинг фракции')
+    description = models.TextField(verbose_name='Описание', default='История оказалась пуста ¯\\_(ツ)_/¯')
 
     def __str__(self):
         return self.name

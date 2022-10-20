@@ -28,4 +28,4 @@ class Report(models.Model):
     class Meta:
         verbose_name = 'отчёт'
         verbose_name_plural = 'Отчёты'
-        ordering = ['myself']
+        ordering = ['-created_at']

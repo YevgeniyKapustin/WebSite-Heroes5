@@ -14,6 +14,7 @@
                 <th scope="col">{{ TableCol2 }}</th>
                 <th scope="col">{{ TableCol3 }}</th>
                 <th scope="col">{{ TableCol4 }}</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -23,7 +24,24 @@
                 <td>{{ player.games }}</td>
                 <td>{{ player.winrate }}%</td>
                 <td>{{ player.rating }}</td>
+                <td>
+                    <a class="btn btn" data-bs-toggle="offcanvas" href="#offcanvas{{ player.id }}" role="button"
+                       aria-controls="offcanvasExample">Подробнее
+                    </a>
+                </td>
             </tr>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas{{ player.id }}"
+                 aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvas{{ player.id }}Label">{{ player.name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        {{ player.description|safe }}
+                    </div>
+                </div>
+            </div>
             {% endfor %}
             </tbody>
         </table>
@@ -46,7 +64,24 @@
                 <td>{{ fraction.games }}</td>
                 <td>{{ fraction.winrate }}%</td>
                 <td>{{ fraction.rating }}</td>
+                <td>
+                    <a class="btn btn" data-bs-toggle="offcanvas" href="#offcanvasfrac{{ fraction.id }}" role="button"
+                       aria-controls="offcanvasExample">Подробнее
+                    </a>
+                </td>
             </tr>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasfrac{{ fraction.id }}"
+                 aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasfrac{{ fraction.id }}Label">{{ fraction.name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        {{ fraction.description|safe }}
+                    </div>
+                </div>
+            </div>
             {% endfor %}
             </tbody>
         </table>

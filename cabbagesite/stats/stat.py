@@ -8,8 +8,8 @@ class Stats:
 
     def __init__(self):
 
-        self.reports = Report.objects.all()
-        self.default_object = {'game_count': 0, 'victory': 0, 'rating': 100}
+        self.reports = Report.objects.order_by('created_at')
+        self.default_object = {'name': 'default', 'game_count': 0, 'victory': 0, 'rating': 100, 'description': ''}
         self.players = {}
         self.fractions = {}
 
@@ -29,7 +29,8 @@ class Stats:
                 name=player_name,
                 games=player['game_count'],
                 winrate=player['winrate'],
-                rating=player['rating']
+                rating=player['rating'],
+                description=player['description']
             )
 
         for fraction_name in self.fractions:
@@ -38,15 +39,18 @@ class Stats:
                 name=fraction_name,
                 games=fraction['game_count'],
                 winrate=fraction['winrate'],
-                rating=fraction['rating']
+                rating=fraction['rating'],
+                description=fraction['description']
             )
 
     def __player_stat_count(self, report):
 
         if report.myself not in self.players:
             self.players[report.myself] = deepcopy(self.default_object)
+            self.players[report.myself]['name'] = report.myself
         if report.opponent not in self.players:
             self.players[report.opponent] = deepcopy(self.default_object)
+            self.players[report.opponent]['name'] = report.opponent
 
         myself, opponent = self.players[report.myself], self.players[report.opponent]
         myself, opponent = self.__game_count(myself, opponent)
@@ -60,8 +64,10 @@ class Stats:
 
         if report.fraction_myself not in self.fractions:
             self.fractions[report.fraction_myself] = deepcopy(self.default_object)
+            self.players[report.myself]['name'] = report.myself
         if report.fraction_opponent not in self.fractions:
             self.fractions[report.fraction_opponent] = deepcopy(self.default_object)
+            self.players[report.opponent]['name'] = report.opponent
 
         myself, opponent = self.fractions[report.fraction_myself], self.fractions[report.fraction_opponent]
         myself, opponent = self.__game_count(myself, opponent)
@@ -79,8 +85,7 @@ class Stats:
 
         return myself, opponent
 
-    @staticmethod
-    def __rating_count(myself, opponent, victory):
+    def __rating_count(self, myself, opponent, victory):
 
         player_1 = myself['rating']
         player_2 = opponent['rating']
@@ -100,27 +105,40 @@ class Stats:
         else:
             rating_different = 1
 
-        if rating_different > 2:
-            rating_different = 2
-
         if victory:
             if player_1_favorite:
                 myself['victory'] += 1
-                player_1 += ceil(10 * rating_different)
-                player_2 -= ceil(10 * rating_different)
+                rating_change = ceil(10 * rating_different)
+                if rating_change > 20:
+                    rating_change = 20
+                myself, opponent = self.__add_description(myself, opponent, rating_change, victory)
+                player_1 += rating_change
+                player_2 -= rating_change
             else:
                 myself['victory'] += 1
-                player_1 += ceil(10 / rating_different)
-                player_2 -= ceil(10 / rating_different)
+                rating_change = ceil(10 / rating_different)
+                if rating_change > 20:
+                    rating_change = 20
+                myself, opponent = self.__add_description(myself, opponent, rating_change, victory)
+                player_1 += rating_change
+                player_2 -= rating_change
         else:
             if player_1_favorite:
                 opponent['victory'] += 1
-                player_1 -= ceil(10 / rating_different)
-                player_2 += ceil(10 / rating_different)
+                rating_change = ceil(10 / rating_different)
+                if rating_change > 20:
+                    rating_change = 20
+                myself, opponent = self.__add_description(myself, opponent, rating_change, victory)
+                player_1 -= rating_change
+                player_2 += rating_change
             else:
                 opponent['victory'] += 1
-                player_1 -= ceil(10 * rating_different)
-                player_2 += ceil(10 * rating_different)
+                rating_change = ceil(10 * rating_different)
+                if rating_change > 20:
+                    rating_change = 20
+                myself, opponent = self.__add_description(myself, opponent, rating_change, victory)
+                player_1 -= rating_change
+                player_2 += rating_change
 
         if player_1 < 0:
             player_1 = 0
@@ -137,5 +155,21 @@ class Stats:
 
         myself['winrate'] = int(myself['victory'] / myself['game_count'] * 100)
         opponent['winrate'] = int(opponent['victory'] / opponent['game_count'] * 100)
+
+        return myself, opponent
+
+    @staticmethod
+    def __add_description(myself, opponent, rating_change, victory):
+
+        if victory:
+            myself['description'] += \
+                f'VS {opponent["name"]}({myself["rating"]}<span style="color: green;"> + {rating_change}</span>)<br>'
+            opponent['description'] += \
+                f'VS {myself["name"]}({opponent["rating"]}<span style="color: red;"> - {rating_change}</span>)<br>'
+        else:
+            myself['description'] += \
+                f'VS {opponent["name"]}({myself["rating"]}<span style="color: red;"> - {rating_change}</span>)<br>'
+            opponent['description'] += \
+                f'VS {myself["name"]}({opponent["rating"]}<span style="color: green;"> + {rating_change}</span>)<br>'
 
         return myself, opponent
