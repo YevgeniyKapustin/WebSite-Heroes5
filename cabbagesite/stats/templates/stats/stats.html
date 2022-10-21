@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css_addition %}
+<link rel='stylesheet' href="{% static 'stats/css/style.css' %}">
+{% endblock %}
 
 {% block title %}
 {{ Title }}
@@ -7,28 +12,23 @@
 {% block content %}
 <div class="row">
     <div class="col-md-6">
-        <table class="table table-hover">
+        <table class="table table-responsive table-hover table-sm">
             <thead>
             <tr>
                 <th scope="col">{{ TablePlayerCol1 }}</th>
                 <th scope="col">{{ TableCol2 }}</th>
                 <th scope="col">{{ TableCol3 }}</th>
                 <th scope="col">{{ TableCol4 }}</th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             {% for player in WinratePlayersStats %}
-            <tr>
-                <td>{{ player.name }}</td>
+            <tr href="#offcanvas{{ player.id }}" aria-controls="offcanvasExample"
+                data-bs-toggle="offcanvas" role="button" style="cursor:pointer;">
+                <td><h6>{{ player.name }}</h6></td>
                 <td>{{ player.games }}</td>
                 <td>{{ player.winrate }}%</td>
                 <td>{{ player.rating }}</td>
-                <td>
-                    <a class="btn btn" data-bs-toggle="offcanvas" href="#offcanvas{{ player.id }}" role="button"
-                       aria-controls="offcanvasExample">Подробнее
-                    </a>
-                </td>
             </tr>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas{{ player.id }}"
                  aria-labelledby="offcanvasExampleLabel">
@@ -48,7 +48,7 @@
     </div>
 
     <div class="col-md-6">
-        <table class="table table-hover">
+        <table class="table table-responsive table-hover table-sm">
             <thead>
             <tr>
                 <th scope="col">{{ TableFractionCol1 }}</th>
@@ -60,15 +60,12 @@
             <tbody>
             {% for fraction in WinrateFractionsStats %}
             <tr>
-                <td>{{ fraction.name }}</td>
+            <tr href="#offcanvasfrac{{ fraction.id }}" aria-controls="offcanvasExample"
+                data-bs-toggle="offcanvas" role="button">
+                <td><h6>{{ fraction.name }}</h6></td>
                 <td>{{ fraction.games }}</td>
                 <td>{{ fraction.winrate }}%</td>
                 <td>{{ fraction.rating }}</td>
-                <td>
-                    <a class="btn btn" data-bs-toggle="offcanvas" href="#offcanvasfrac{{ fraction.id }}" role="button"
-                       aria-controls="offcanvasExample">Подробнее
-                    </a>
-                </td>
             </tr>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasfrac{{ fraction.id }}"
                  aria-labelledby="offcanvasExampleLabel">

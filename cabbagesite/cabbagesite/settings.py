@@ -17,7 +17,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+
+    'rest_framework',
+
     'reports.apps.ReportsConfig',
     'stats.apps.StatsConfig',
     'download_game.apps.DownloadGameConfig',
@@ -27,7 +29,6 @@ INSTALLED_APPS = [
     'maps.apps.MapsConfig',
     'online_game.apps.OnlineGameConfig',
     'register.apps.RegisterConfig',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -38,7 +39,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'cabbagesite.urls'

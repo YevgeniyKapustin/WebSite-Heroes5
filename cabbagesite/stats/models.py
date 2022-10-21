@@ -31,3 +31,8 @@ class FractionsStats(models.Model):
         verbose_name = 'винрейт фракции'
         verbose_name_plural = 'Винрейт фракций'
         ordering = ['-rating', '-games']
+
+
+class PlayersDescriptions(models.Model):
+    player = models.ForeignKey('PlayersStats', on_delete=models.PROTECT, verbose_name='Игрок')
+    description = models.TextField(verbose_name='Описание', default='История оказалась пуста ¯\\_(ツ)_/¯')

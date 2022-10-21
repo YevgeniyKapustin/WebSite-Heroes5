@@ -11,7 +11,7 @@ def show_stat(request):
         'TableCol2': 'Финалок',
         'TableCol3': 'Винрейт',
         'TableCol4': 'Рейтинг',
-        'Title': 'Главная'
+        'Title': 'Статистика'
     }
     return render(request, 'stats/stats.html', context)
 

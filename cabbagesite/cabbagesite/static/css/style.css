@@ -1,6 +1,10 @@
 body{
-    background-color: #F8FFF0;
+    background-color: #666;
 }
 .errorlist{
     color: red;
+}
+.content {
+    background: #fff;
+    padding: 3% 2% 2% 2%;
 }

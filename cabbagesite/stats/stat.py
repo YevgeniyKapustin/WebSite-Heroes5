@@ -163,13 +163,13 @@ class Stats:
 
         if victory:
             myself['description'] += \
-                f'VS {opponent["name"]}({myself["rating"]}<span style="color: green;"> + {rating_change}</span>)<br>'
+                f'VS {opponent["name"]}({myself["rating"]}<span class="victory"> + {rating_change}</span>)<br>'
             opponent['description'] += \
-                f'VS {myself["name"]}({opponent["rating"]}<span style="color: red;"> - {rating_change}</span>)<br>'
+                f'VS {myself["name"]}({opponent["rating"]}<span class="defeat"> - {rating_change}</span>)<br>'
         else:
             myself['description'] += \
-                f'VS {opponent["name"]}({myself["rating"]}<span style="color: red;"> - {rating_change}</span>)<br>'
+                f'VS {opponent["name"]}({myself["rating"]}<span class="defeat"> - {rating_change}</span>)<br>'
             opponent['description'] += \
-                f'VS {myself["name"]}({opponent["rating"]}<span style="color: green;"> + {rating_change}</span>)<br>'
+                f'VS {myself["name"]}({opponent["rating"]}<span class="victory"> + {rating_change}</span>)<br>'
 
         return myself, opponent
