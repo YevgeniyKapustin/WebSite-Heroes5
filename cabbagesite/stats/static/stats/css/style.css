@@ -2,5 +2,8 @@
     color: green;
 }
 .defeat {
-    color: red;
+    color: #C10000;
+}
+.myself {
+    font-weight: bold;
 }

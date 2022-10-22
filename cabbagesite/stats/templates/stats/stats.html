@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load desc_tags %}
 {% load static %}
 
 {% block css_addition %}
@@ -38,7 +39,7 @@
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        {{ player.description|safe }}
+                        {% get_reverse_order_desc player.description %}
                     </div>
                 </div>
             </div>
