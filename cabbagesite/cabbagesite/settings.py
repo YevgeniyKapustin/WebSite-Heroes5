@@ -99,7 +99,7 @@ INTERNAL_IPS = [
 ]
 
 game_link = 'https://drive.google.com/file/d/1Pf3heEC8OwC-q4wPXThmASO0trSwcWVs/view?usp=sharing'
-game_image = '/media/game.png'
+game_image = '/media/game/game.jpeg'
 
 kateusta_link = 'https://disk.yandex.ru/d/QeUEhYAX7TCYoQ'
 kateusta_version = 1.14

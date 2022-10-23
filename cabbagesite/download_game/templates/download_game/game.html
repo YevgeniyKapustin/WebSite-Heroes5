@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css_addition %}
+<link rel='stylesheet' href="{% static 'download_game/css/style.css' %}">
+{% endblock %}
 
 {% block title %}
 {{ title }}
@@ -6,8 +11,22 @@
 
 {% block content %}
 <div class="row">
-    <img src="{{ image }}" alt="" width="150">
-    <p>Стабильная версия, испытана множеством игроков. Просто распаковать архив в нужную директорию.</p>
-    <a href='{{ link }}' class="btn btn-outline-dark">Скачать архив</a>
+    <div class="col-md-3">
+        <img class="img-fluid" src="{{ image }}" alt="">
+    </div>
+    <div class="col-md-9">
+        <p>Стабильная версия, испытана множеством игроков. Просто распаковать архив в нужную директорию.</p>
+        <div class="d-grid gap-2">
+            <a href='{{ link }}' class="btn btn-outline-dark">Скачать архив</a>
+        </div>
+        <p class="bold">Версия: 3.1</p>
+        <p>Системные требования:<br>
+        Операционная система: XP / Vista / 7 /8 /10<br>
+        Процессор: Intel Pentium 4 / AMD Athlon @ 1.5 ГГц<br>
+        Оперативная память: 512 Мб<br>
+        Видеокарта: 64 Мб, совместимая с DirectX 9<br>
+        Звуковая карта: совместимая с DirectX 9.0c<br>
+        Свободное место на жёстком диске: 3 Гб</p>
+    </div>
 </div>
 {% endblock %}
