@@ -6,9 +6,23 @@
 
 {% block content %}
 <div class="row">
-    <img src="{{ image }}" alt="" width="150">
-    <p>В программе жмем Сеть > Присоединиться к существующей сети > Частная сеть, далее вводим следующее: PSB_Heroes5
-        123456 Все, теперь вам и вашему другу достаточно уже в самой игре зайти в Сетевая игра > Локальная сеть.</p>
-    <a href='{{ link }}' class="btn btn-outline-dark">Скачать радмин</a>
+    <div class="col-md-3">
+        <img class="img-fluid" src="{{ image }}" alt="">
+    </div>
+    <div class="col-md-9">
+        Для игры по сети вам нужна 3.1 версия героев и установить PEST
+        <div class="d-grid gap-2">
+            <a href='https://disk.yandex.ru/d/RlyLICXCzTsSQg' class="btn btn-outline-dark">Скачать PEST</a>
+        </div>
+        <p>Вам нужно просто подменить H5_Game.exe в папке bin на этот файл</p>
+        Так же нужна программа, которая создаст для вас локальное соединение с другими игроками.
+            Капуста рекомендует Radmin VPN
+        <div class="d-grid gap-2">
+            <a href='{{ link }}' class="btn btn-outline-dark">Скачать Radmin VPN</a>
+        </div>
+        В программе жмем Сеть > Присоединиться к существующей сети > Частная сеть, далее вводим следующее:
+            PSB_Heroes5
+            123456 Все, теперь вам и вашему другу достаточно уже в самой игре зайти в Сетевая игра > Локальная сеть.
+    </div>
 </div>
 {% endblock %}

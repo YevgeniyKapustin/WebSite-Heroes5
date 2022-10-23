@@ -99,10 +99,10 @@ INTERNAL_IPS = [
 ]
 
 game_link = 'https://drive.google.com/file/d/1Pf3heEC8OwC-q4wPXThmASO0trSwcWVs/view?usp=sharing'
-game_image = '/media/game/game.jpeg'
+game_image = '/static/download_game/img/game.jpeg'
 
 kateusta_link = 'https://disk.yandex.ru/d/QeUEhYAX7TCYoQ'
 kateusta_version = 1.14
 
-online_link = 'https://vk.com/away.php?to=https%3A%2F%2Fdownload.radmin-vpn.com%2Fdownload%2Ffiles%2FRadmin_VPN_1.2.4457.1.exe&cc_key='
-online_image = '/media/online.png'
+online_link = 'https://download.radmin-vpn.com/download/files/Radmin_VPN_1.2.4457.1.exe'
+online_image = '/static/online_game/img/online.jpg'
