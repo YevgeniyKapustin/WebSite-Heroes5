@@ -85,8 +85,11 @@ class Stats:
         player_1 = myself['rating']
         player_2 = opponent['rating']
 
-        rating_differences = self._count_rating_differences(player_1, player_2)
-        player_1, player_2, rating_change = self._rating_accrual(report.victory, rating_differences, myself, opponent)
+        if myself == opponent:
+            rating_change = 0
+        else:
+            rating_differences = self._count_rating_differences(player_1, player_2)
+            player_1, player_2, rating_change = self._rating_accrual(report.victory, rating_differences, myself, opponent)
 
         self._add_player_description(myself, opponent, rating_change, report)
 
@@ -99,11 +102,16 @@ class Stats:
 
         rating_p1 = self.fractions[report.fraction_myself]['rating']
         rating_p2 = self.fractions[report.fraction_opponent]['rating']
+        fraction_1 = myself['rating']
+        fraction_2 = opponent['rating']
 
-        rating_differences_fractions = self._count_rating_differences(myself['rating'], opponent['rating'])
-        rating_differences_players = self._count_rating_differences(rating_p1, rating_p2)
-        rating_differences = rating_differences_fractions + rating_differences_players / 2
-        fraction_1, fraction_2, rating_change = self._rating_accrual(report.victory, rating_differences, myself, opponent)
+        if myself == opponent:
+            rating_change = 0
+        else:
+            rating_differences_fractions = self._count_rating_differences(fraction_1, fraction_2)
+            rating_differences_players = self._count_rating_differences(rating_p1, rating_p2)
+            rating_differences = rating_differences_fractions + rating_differences_players / 2
+            fraction_1, fraction_2, rating_change = self._rating_accrual(report.victory, rating_differences, myself, opponent)
 
         myself, opponent = self._add_fraction_description(myself, opponent, rating_change, report)
 
@@ -113,6 +121,8 @@ class Stats:
         return myself, opponent
 
     def _count_rating_differences(self, player_1, player_2):
+
+        self.player_1_favorite = False
 
         if player_1 > 0 and player_2 > 0:
             if player_1 > player_2:
@@ -207,12 +217,12 @@ class Stats:
             myself_description = f'''
             <span class="defeat myself">{myself["name"]}</span>({report.fraction_myself}) VS 
             <span class="victory myself">{opponent["name"]}</span>({report.fraction_opponent})<br>
-            Рейтинг {myself["rating"]}<span class="victory"> - {rating_change}</span><br/>
+            Рейтинг {myself["rating"]}<span class="defeat"> - {rating_change}</span><br/>
             '''
             opponent_description = f'''
             <span class="victory myself">{opponent["name"]}</span>({report.fraction_opponent}) VS 
             <span class="defeat myself">{myself["name"]}</span>({report.fraction_myself})<br>
-            Рейтинг {opponent["rating"]}<span class="defeat"> + {rating_change}</span><br/>
+            Рейтинг {opponent["rating"]}<span class="victory"> + {rating_change}</span><br/>
             '''
 
         myself['description'] += myself_description
@@ -238,12 +248,12 @@ class Stats:
             myself_description = f'''
             <span class="defeat myself">{myself["name"]}</span>({report.myself}) VS 
             {opponent["name"]}({report.opponent})<br>
-            Рейтинг {myself["rating"]}<span class="victory"> - {rating_change}</span><br/>
+            Рейтинг {myself["rating"]}<span class="defeat"> - {rating_change}</span><br/>
             '''
             opponent_description = f'''
             <span class="victory myself">{opponent["name"]}</span>({report.opponent}) VS 
             {myself["name"]}({report.myself})<br>
-            Рейтинг {opponent["rating"]}<span class="defeat"> + {rating_change}</span><br/>
+            Рейтинг {opponent["rating"]}<span class="victory"> + {rating_change}</span><br/>
             '''
 
         myself['description'] += myself_description

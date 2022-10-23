@@ -76,7 +76,7 @@
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        {{ fraction.description|safe }}
+                        {% get_reverse_order_desc fraction.description %}
                     </div>
                 </div>
             </div>
