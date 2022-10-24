@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Как установить?
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'maps_single' %}">Одиночные</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'maps_multiplayer' %}">Мультиплеер</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'maps_install' %}">Как установить?</a>
+            </li>
+        </ul>
+        <p>Карты кладутся в папку Maps<br>
+            если папки Maps нет, то создайте её</p>
+        <div class="row-md-6">
+            <img class="img-fluid" src="{% static 'maps/img/screenshot_1.png' %}" alt="">
+        </div>
+    </div>
+</div>
+{% endblock %}

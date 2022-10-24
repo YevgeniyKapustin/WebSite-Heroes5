@@ -1,13 +1,26 @@
-from django.views.generic import ListView
+from django.shortcuts import render
 from maps.models import Maps
 
 
-class MapsList(ListView):
-    model = Maps
+def maps_single(request):
+    context = {
+        'title': 'Одиночные карты',
+        'Button': 'Скачать',
+        'Prefix': 'Авторство: ',
+        'maps': Maps.objects.filter(type='single')
+    }
+    return render(request, 'maps/maps_single.html', context)
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['Title'] = 'Карты'
-        context['Button'] = 'Скачать'
-        context['Prefix'] = 'Авторство: '
-        return context
+
+def maps_multiplayer(request):
+    context = {
+        'title': 'Мультиплеерные карты',
+        'Button': 'Скачать',
+        'Prefix': 'Авторство: ',
+        'maps': Maps.objects.filter(type='multiplayer')
+    }
+    return render(request, 'maps/maps_multiplayer.html', context)
+
+
+def maps_install(request):
+    return render(request, 'maps/maps_install.html')

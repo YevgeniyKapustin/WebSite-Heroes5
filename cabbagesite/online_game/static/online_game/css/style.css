@@ -1,0 +1,9 @@
+.victory {
+    color: green;
+}
+.defeat {
+    color: #C10000;
+}
+.myself {
+    font-weight: bold;
+}

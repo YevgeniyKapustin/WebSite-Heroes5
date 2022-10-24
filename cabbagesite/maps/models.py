@@ -7,6 +7,7 @@ class Maps(models.Model):
     creators = models.TextField(verbose_name='Авторы')
     photo = models.ImageField(upload_to='maps', verbose_name='Изображение')
     url = models.URLField(max_length=200, verbose_name='Cсылка')
+    type = models.CharField(max_length=150, default='single', verbose_name='Тип карты')
 
     def __str__(self):
         return self.title

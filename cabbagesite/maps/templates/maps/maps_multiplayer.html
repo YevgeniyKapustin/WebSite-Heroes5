@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ Title }}
+{{ title }}
 {% endblock %}
 
 {% block content %}
 <div class="row">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'maps_single' %}">Одиночные</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'maps_multiplayer' %}">Мультиплеер</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'maps_install' %}">Как установить?</a>
+        </li>
+    </ul>
     <div class="col-md-12">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for item in object_list %}
+            {% for item in maps %}
             <div class="col">
                 <div class="card border-dark mb-6 h-100">
                     <img src="{{ item.photo.url }}" class="card-img-top" alt="">
