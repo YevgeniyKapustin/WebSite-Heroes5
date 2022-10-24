@@ -8,17 +8,19 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{% url 'mods' %}">Моды</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="{% url 'mods_install' %}">Как установить?</a>
-            </li>
-        </ul>
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'mods' %}">Моды</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'mods_install' %}">Как установить?</a>
+                </li>
+            </ul>
+        </div>
         <p>Моды с расширением pak в папку data<br>
-        с расширением h5u в папку UserMODs<br>
-        если папки UserMODs нет, то создайте её</p>
+            с расширением h5u в папку UserMODs<br>
+            если папки UserMODs нет, то создайте её</p>
         <div class="row-md-6">
             <img class="img-fluid" src="{% static 'mods/img/screenshot_1.png' %}" alt="">
         </div>

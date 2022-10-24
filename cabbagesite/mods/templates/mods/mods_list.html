@@ -6,14 +6,16 @@
 
 {% block content %}
 <div class="row">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'mods' %}">{{ title }}</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'mods_install' %}">Как установить?</a>
-        </li>
-    </ul>
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'mods' %}">{{ title }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mods_install' %}">Как установить?</a>
+            </li>
+        </ul>
+    </div>
     <div class="col-md-12">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for item in object_list %}
