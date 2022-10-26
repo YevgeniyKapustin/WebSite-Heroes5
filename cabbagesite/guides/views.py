@@ -13,3 +13,8 @@ class GuidesMain(ListView):
 
 class GuideDetailMain(DetailView):
     model = Guides
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = Guides.objects.all()
+        return context
