@@ -85,7 +85,7 @@
                  data-bs-parent="#accordionKateusta">
                 <div class="accordion-body">
                     <h4> Обозначения</h4><br>
-                    <img class="img-fluid" src="/media/kateusta/Marks.png" alt="" ><br>
+                    <img class="img-fluid" src="/media/kateusta/Marks.png" alt=""><br>
                     <h4> Шаблон для дуэлей</h4><br>
                     <img class="img-fluid" src="/media/kateusta/1vs1.png" alt=""><br>
                     <h4> Шаблон для командной игры</h4><br>
@@ -110,8 +110,10 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-outline-dark" href="{{ link }}" role="button">
-        Скачать Kateusta V{{ version }}
-    </a>
+    <div class="d-grid gap-2">
+        <a class="btn btn-outline-dark" href="{{ link }}" role="button">
+            Скачать Kateusta V{{ version }}
+        </a>
+    </div>
 </div>
 {% endblock %}
