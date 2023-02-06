@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from cabbagesite.settings import kateusta_version, kateusta_link
 
 

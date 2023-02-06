@@ -1,4 +1,5 @@
 from django.urls import path
+
 from reports.views import send_reports
 
 urlpatterns = [

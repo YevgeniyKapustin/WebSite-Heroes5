@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+
 from reports.forms import ReportForm
 from stats.stat import Stats
 

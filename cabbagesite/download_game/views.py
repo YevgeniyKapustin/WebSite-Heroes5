@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from cabbagesite.settings import game_link, game_image
 
 

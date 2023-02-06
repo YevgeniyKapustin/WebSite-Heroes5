@@ -1,4 +1,5 @@
 from django.urls import path
+
 from maps.views import maps_install, maps_single, maps_multiplayer
 
 urlpatterns = [
