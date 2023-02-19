@@ -38,7 +38,7 @@ class Report(models.Model):
 
 class PlayerData(models.Model):
     name = models.CharField(max_length=15, verbose_name='Игрок')
-    avatar = models.ImageField(upload_to='avatars', verbose_name='Изображение',
+    avatar = models.ImageField(upload_to='avatars/', verbose_name='Изображение',
                                default=None)
 
     def __str__(self):

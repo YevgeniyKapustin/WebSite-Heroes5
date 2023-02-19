@@ -9,10 +9,13 @@ register = template.Library()
 
 @register.simple_tag()
 def get_reverse_order_desc(desc):
-    desc = desc.split('<br/>').reverse()
+    desc = desc.split('<br/>')
+    desc.reverse()
     return mark_safe('<br/>-----------------------<br/>'.join(desc))
 
 
 @register.simple_tag()
 def get_player_avatar(name):
-    return get_object_or_404(PlayerData, name=name).avatar
+    data = PlayerData.objects.filter(name=name)
+    if data:
+        return data[0].avatar.url

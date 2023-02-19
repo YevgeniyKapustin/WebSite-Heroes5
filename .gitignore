@@ -3,3 +3,5 @@ __pycache__/
 confidential.py
 .idea
 cabbagesite/static
+media/
+0*.py
