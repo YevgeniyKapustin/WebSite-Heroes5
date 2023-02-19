@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView
+
 from guides.models import Guides
 
 

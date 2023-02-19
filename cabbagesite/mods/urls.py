@@ -1,4 +1,5 @@
 from django.urls import path
+
 from mods.views import ModsList, mods_install
 
 urlpatterns = [

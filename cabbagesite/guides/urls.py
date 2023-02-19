@@ -1,4 +1,5 @@
 from django.urls import path
+
 from guides.views import GuidesMain, GuideDetailMain
 
 urlpatterns = [

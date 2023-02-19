@@ -1,4 +1,5 @@
 from rest_framework.generics import ListAPIView
+
 from api.serializers import PlayersStatSerializer, FractionsStatSerializer
 from stats.models import PlayersStats, FractionsStats
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from cabbagesite.settings import online_image, online_link
 
 

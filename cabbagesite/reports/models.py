@@ -2,7 +2,8 @@ from django.db import models
 
 
 class Fractions(models.Model):
-    title = models.CharField(max_length=20, db_index=True, verbose_name='Фракция')
+    title = models.CharField(max_length=20, db_index=True,
+                             verbose_name='Фракция')
 
     def __str__(self):
         return self.title

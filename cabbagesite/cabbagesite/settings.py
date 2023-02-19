@@ -95,7 +95,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 INTERNAL_IPS = [
-    "127.0.0.1",
+    "127.0.0.1"
 ]
 
 game_link = 'https://drive.google.com/file/d/1Pf3heEC8OwC-q4wPXThmASO0trSwcWVs/view?usp=sharing'

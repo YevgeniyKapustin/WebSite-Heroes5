@@ -1,4 +1,5 @@
 from django.urls import path
+
 from stats.views import show_stat, redirect_to_stat
 
 urlpatterns = [
