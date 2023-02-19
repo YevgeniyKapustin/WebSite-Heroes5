@@ -27,10 +27,10 @@
             <tr href="#offcanvas{{ player.id }}" aria-controls="offcanvasExample"
                 data-bs-toggle="offcanvas" role="button" style="cursor:pointer;">
 
-                <td>
-                    <img height="50" src="{% get_player_avatar player.name %}">
+                <td><h6>
+                    <img height="30" src="{% get_player_avatar player.name %}">
                     {{ player.name }}
-                </td>
+                </h6></td>
                 <td>{{ player.games }}</td>
                 <td>{{ player.winrate }}%</td>
                 <td>{{ player.rating }}</td>
@@ -38,6 +38,8 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas{{ player.id }}"
                  aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
+                    <img height="100"
+                        WIDTH="" src="{% get_player_avatar player.name %}">
                     <h5 class="offcanvas-title" id="offcanvas{{ player.id }}Label">{{ player.name }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
                 </div>

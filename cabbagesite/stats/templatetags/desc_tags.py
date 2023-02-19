@@ -1,5 +1,4 @@
 from django import template
-from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
 
 from reports.models import PlayerData
@@ -19,3 +18,4 @@ def get_player_avatar(name):
     data = PlayerData.objects.filter(name=name)
     if data:
         return data[0].avatar.url
+    return f'https://kapusta.eu.pythonanywhere.com/static/reports/avatars/default.png'
