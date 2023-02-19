@@ -1,5 +1,5 @@
 from django.contrib import admin
-from reports.models import Report, Fractions
+from reports.models import Report, Fractions, PlayerData
 
 
 class ReportAdmin(admin.ModelAdmin):
@@ -10,3 +10,4 @@ class ReportAdmin(admin.ModelAdmin):
 
 admin.site.register(Report, ReportAdmin)
 admin.site.register(Fractions)
+admin.site.register(PlayerData)

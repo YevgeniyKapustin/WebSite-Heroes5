@@ -26,6 +26,9 @@
             {% for player in WinratePlayersStats %}
             <tr href="#offcanvas{{ player.id }}" aria-controls="offcanvasExample"
                 data-bs-toggle="offcanvas" role="button" style="cursor:pointer;">
+                {% if {% get_player_avatar player.name %} %}
+                <img class="img-fluid" height="50" src="{% get_player_avatar player.name %}">
+                {% endif %}
                 <td><h6>{{ player.name }}</h6></td>
                 <td>{{ player.games }}</td>
                 <td>{{ player.winrate }}%</td>
